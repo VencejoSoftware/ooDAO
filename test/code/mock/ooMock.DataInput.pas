@@ -25,7 +25,8 @@ type
     function ReadString(const Key: IKey): String;
     function ReadDateTime(const Key: IKey): TDateTime;
     function ReadChar(const Key: IKey): Char;
-
+    procedure EnterSection(const Key: IKey);
+    procedure ExitSection(const Key: IKey);
     constructor Create(const ID: Integer; const Value: String);
     class function New(const ID: Integer; const Value: String): IDataInput;
   end;
@@ -65,15 +66,25 @@ begin
     Result := _Value
 end;
 
+function TMockDataInput.IsNull(const Key: IKey): Boolean;
+begin
+  Result := _ID < 0;
+end;
+
+procedure TMockDataInput.EnterSection(const Key: IKey);
+begin
+
+end;
+
+procedure TMockDataInput.ExitSection(const Key: IKey);
+begin
+
+end;
+
 constructor TMockDataInput.Create(const ID: Integer; const Value: String);
 begin
   _ID := ID;
   _Value := Value;
-end;
-
-function TMockDataInput.IsNull(const Key: IKey): Boolean;
-begin
-  Result := _ID < 0;
 end;
 
 class function TMockDataInput.New(const ID: Integer; const Value: String): IDataInput;
