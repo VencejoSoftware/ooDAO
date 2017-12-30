@@ -10,7 +10,7 @@ interface
 uses
   Classes, SysUtils,
   Generics.Collections,
-  ooDAO.DataProvider.Intf,
+  ooDAO.DataProvider,
   ooDAO.DataProvider.List.Intf;
 
 type

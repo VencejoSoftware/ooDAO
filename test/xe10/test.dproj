@@ -85,9 +85,14 @@
         <DCCReference Include="..\code\ooDAO.Connection.ADO_test.pas"/>
         <DCCReference Include="..\code\ooDAO.Connection.Firebird_test.pas"/>
         <DCCReference Include="..\code\ooDAO.Connection.SQLite_test.pas"/>
+        <DCCReference Include="..\code\data-provider\ooDAO.AutoInc_test.pas"/>
+        <DCCReference Include="..\code\data-provider\ooDAO.AutoIncScript_test.pas"/>
         <DCCReference Include="..\code\data-provider\ooDAO.DataProvider.Mock_test.pas"/>
+        <DCCReference Include="..\code\data-provider\ooDAO.DataProvider_test.pas"/>
         <DCCReference Include="..\code\data-provider\ooDAO.DataQuery_test.pas"/>
         <DCCReference Include="..\code\data-provider\ooDAO.EntityScript.Mock_test.pas"/>
+        <DCCReference Include="..\code\data-provider\ooDAO.EntityScript_test.pas"/>
+        <DCCReference Include="..\code\mock\ooDAO.AutoIncScript_Mock.pas"/>
         <DCCReference Include="..\code\mock\ooDAO.DataProvider.Mock.pas"/>
         <DCCReference Include="..\code\mock\ooDAO.EntityScript.Mock.pas"/>
         <DCCReference Include="..\code\mock\ooEntity.Mock.pas"/>
@@ -155,9 +160,15 @@
                 <Platform value="Win64">False</Platform>
             </Platforms>
             <Deployment Version="3">
-                <DeployFile LocalName="$(BDS)\Redist\osx32\libcgunwind.1.0.dylib" Class="DependencyModule"/>
+                <DeployFile LocalName="..\build\debug\test.exe" Configuration="Debug" Class="ProjectOutput">
+                    <Platform Name="Win32">
+                        <RemoteName>test.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="..\build\debug\test.exe" Configuration="Debug" Class="ProjectOutput"/>
                 <DeployFile LocalName="$(BDS)\Redist\iossim32\libcgunwind.1.0.dylib" Class="DependencyModule"/>
+                <DeployFile LocalName="$(BDS)\Redist\osx32\libcgunwind.1.0.dylib" Class="DependencyModule"/>
                 <DeployClass Name="AdditionalDebugSymbols">
                     <Platform Name="OSX32">
                         <Operation>1</Operation>

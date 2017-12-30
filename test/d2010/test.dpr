@@ -16,7 +16,10 @@ uses
   ooDAO.EntityScript.Mock in '..\code\mock\ooDAO.EntityScript.Mock.pas',
   ooDAO.DataProvider.Mock in '..\code\mock\ooDAO.DataProvider.Mock.pas',
   ooDAO.EntityScript_test in '..\code\data-provider\ooDAO.EntityScript_test.pas',
-  ooDAO.DataQuery_test in '..\code\data-provider\ooDAO.DataQuery_test.pas';
+  ooDAO.DataQuery_test in '..\code\data-provider\ooDAO.DataQuery_test.pas',
+  ooDAO.AutoIncScript_test in '..\code\data-provider\ooDAO.AutoIncScript_test.pas',
+  ooDAO.AutoIncScript_Mock in '..\code\mock\ooDAO.AutoIncScript_Mock.pas',
+  ooDAO.AutoInc_test in '..\code\data-provider\ooDAO.AutoInc_test.pas';
 
 {$R *.RES}
 

@@ -59,6 +59,9 @@
 			<DCCReference Include="..\code\mock\ooDAO.DataProvider.Mock.pas"/>
 			<DCCReference Include="..\code\data-provider\ooDAO.EntityScript_test.pas"/>
 			<DCCReference Include="..\code\data-provider\ooDAO.DataQuery_test.pas"/>
+			<DCCReference Include="..\code\data-provider\ooDAO.AutoIncScript_test.pas"/>
+			<DCCReference Include="..\code\mock\ooDAO.AutoIncScript_Mock.pas"/>
+			<DCCReference Include="..\code\data-provider\ooDAO.AutoInc_test.pas"/>
 			<BuildConfiguration Include="Base">
 				<Key>Base</Key>
 			</BuildConfiguration>

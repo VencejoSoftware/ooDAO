@@ -23,7 +23,7 @@ uses
 type
   TDAOConnectionFirebirdTest = class(TTestCase)
   const
-    SCRIPT =                                  //
+    SCRIPT = //
       'DROP TABLE TEST_TABLE;' + sLineBreak + //
       'CREATE TABLE TEST_TABLE(TEST_FIELD VARCHAR(8));' + sLineBreak + //
       'COMMIT WORK;' + sLineBreak + //

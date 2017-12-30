@@ -9,7 +9,7 @@ interface
 
 uses
   SysUtils,
-  ooDAO.DataProvider.Intf;
+  ooDAO.DataProvider;
 
 type
   EDAODataProviderList = class(Exception)
