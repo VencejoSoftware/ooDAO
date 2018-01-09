@@ -127,6 +127,7 @@ begin
         CommitTransaction;
       Result := True;
     except
+      Result := False;
       if InTransaction then
         RollbackTransaction;
       raise ;
