@@ -15,13 +15,12 @@ uses
   ooDAO.Connection, ooDAO.Connection.Intf;
 
 type
-  IDAOConnectionSQLite = interface(IDAOConnection)
+  IDAOConnectionSQLite = interface(IDAOConnectionDateServer)
     ['{4816112F-8476-44A3-9985-2885C00B9365}']
-    function ServerDateTime: TDateTime;
     function CreateDatabase: Boolean;
   end;
 
-  TDAOConnectionSQLite = class sealed(TInterfacedObject, IDAOConnectionSQLite, IDAOConnection)
+  TDAOConnectionSQLite = class sealed(TInterfacedObject, IDAOConnectionDateServerSQLite, IDAOConnectionDateServer)
   strict private
     _Connection: TZConnection;
     _DAOConnection: IDAOConnection;
@@ -45,7 +44,7 @@ type
     constructor Create(const Settings: IConnectionSQLiteSettings);
     destructor Destroy; override;
 
-    class function New(const Settings: IConnectionSQLiteSettings): IDAOConnectionSQLite;
+    class function New(const Settings: IConnectionSQLiteSettings): IDAOConnectionDateServerSQLite;
   end;
 
 implementation
@@ -152,7 +151,7 @@ begin
   inherited;
 end;
 
-class function TDAOConnectionSQLite.New(const Settings: IConnectionSQLiteSettings): IDAOConnectionSQLite;
+class function TDAOConnectionSQLite.New(const Settings: IConnectionSQLiteSettings): IDAOConnectionDateServerSQLite;
 begin
   Result := TDAOConnectionSQLite.Create(Settings);
 end;

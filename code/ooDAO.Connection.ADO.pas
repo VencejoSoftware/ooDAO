@@ -15,12 +15,11 @@ uses
   ooDAO.Connection.Intf;
 
 type
-  IDAOConnectionADO = interface(IDAOConnection)
+  IDAOConnectionADO = interface(IDAOConnectionDateServer)
     ['{24341804-7A29-4D6C-BF15-357F94D3CBBC}']
-    function ServerDateTime: TDateTime;
   end;
 
-  TDAOConnectionADO = class sealed(TInterfacedObject, IDAOConnectionADO, IDAOConnection)
+  TDAOConnectionADO = class sealed(TInterfacedObject, IDAOConnectionADO, IDAOConnectionDateServer)
   strict private
     _Connection: TADOConnection;
     _SQLServerDateTime: String;

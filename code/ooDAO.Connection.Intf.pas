@@ -35,6 +35,11 @@ type
     procedure Disconnect;
   end;
 
+  IDAOConnectionDateServer = interface(IDAOConnection)
+    ['{38894C4F-E68D-4816-A112-EBB12AA92227}']
+    function ServerDateTime: TDateTime;
+  end;
+
 implementation
 
 end.
