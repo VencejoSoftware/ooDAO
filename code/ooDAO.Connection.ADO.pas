@@ -159,10 +159,14 @@ begin
 end;
 
 function TDAOConnectionADO.PrepareSQL(const SQL: String): String;
+const
+  SINTAX_EOL = ';';
 begin
   Result := SQL;
   Result := StringReplace(Result, SCHEMA_QUOTE_BEGIN, EmptyStr, [rfReplaceAll]);
   Result := StringReplace(Result, SCHEMA_QUOTE_END, EmptyStr, [rfReplaceAll]);
+  if (Result[Length(Result)] = SINTAX_EOL) then
+    Delete(Result, Length(Result), 1);
 end;
 
 procedure TDAOConnectionADO.Connect;
@@ -181,8 +185,8 @@ begin
   _SQLServerDateTime := SQLServerDateTime;
 end;
 
-class function TDAOConnectionADO.New(const Connection: TADOConnection;
-  const SQLServerDateTime: String): IDAOConnectionADO;
+class function TDAOConnectionADO.New(const Connection: TADOConnection; const SQLServerDateTime: String)
+  : IDAOConnectionADO;
 begin
   Result := TDAOConnectionADO.Create(Connection, SQLServerDateTime);
 end;
