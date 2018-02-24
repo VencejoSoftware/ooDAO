@@ -1,8 +1,15 @@
+{$REGION 'documentation'}
 {
   Copyright (c) 2016, Vencejo Software
   Distributed under the terms of the Modified BSD License
   The full license is distributed with this software
 }
+{
+  Object to define an auto-incremental value/sequence
+  @created(12/10/2016)
+  @author Vencejo Software <www.vencejosoft.com>
+}
+{$ENDREGION}
 unit ooDAO.AutoInc;
 
 interface
@@ -14,14 +21,46 @@ uses
   ooFilter;
 
 type
+{$REGION 'documentation'}
+{
+  @abstract(Object to define an auto-incremental value/sequence)
+  @member(
+    CurrentValue Return the current sequence value
+    @param(@link(Filter Object to add filter into the get command))
+  )
+  @member(
+    NewValue Consume a sequence value
+    @param(@link(Filter Object to add filter into the consume command))
+  )
+}
+{$ENDREGION}
   IDAOAutoInc = interface
     ['{0ECAABA4-9F69-4F9E-9CC3-6FF0B770E4AC}']
     function CurrentValue(const Filter: IFilter): Cardinal;
     function NewValue(const Filter: IFilter): Cardinal;
   end;
 
+{$REGION 'documentation'}
+{
+  @abstract(Error class for exceptions in code)
+}
+{$ENDREGION}
+
   EDAOAutoInc = class sealed(Exception)
   end;
+
+{$REGION 'documentation'}
+{
+  @abstract(Implementation of @link(IDAOAutoInc))
+  @member(CurrentValue @seealso(IDAOAutoInc.CurrentValue))
+  @member(NewValue @seealso(IDAOAutoInc.NewValue))
+  @member(
+    Create Object constructor
+    @param(Connection @link(IDAOConnection Connection object))
+    @param(AutoIncScript @link(IDAOAutoIncScript Object to build script commands))
+  )
+}
+{$ENDREGION}
 
   TDAOAutoInc = class(TInterfacedObject, IDAOAutoInc)
   strict private
@@ -68,7 +107,7 @@ begin
     _Connection.CommitTransaction;
   except
     _Connection.RollbackTransaction;
-    raise ;
+    raise;
   end;
   Result := CurrentValue(Filter);
 end;
