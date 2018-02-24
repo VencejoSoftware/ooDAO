@@ -4,7 +4,7 @@
 Library to use [CRUD](https://www.wikipedia.org/wiki/CRUD) concepts to apply with ooEntity as data provider
 
 ### Documentation
-If not exists folder "doc" then run the batch "build_doc". The main entry is ./doc/index.html
+If not exists folder "code-documentation" then run the batch "build_doc". The main entry is ./doc/index.html
 
 ### Demo
 See tests code for examples of use.
