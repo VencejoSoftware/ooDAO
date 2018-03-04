@@ -15,12 +15,12 @@ uses
   ooDAO.Connection, ooDAO.Connection.Intf;
 
 type
-  IDAOConnectionDateServerFirebird = interface(IDAOConnectionDateServer)
+  IDAOConnectionFirebird = interface(IDAOConnectionDateServer)
     ['{6C0629AC-2C39-497C-BF40-092D6267184A}']
     function CreateDatabase: Boolean;
   end;
 
-  TDAOConnectionFirebird = class sealed(TInterfacedObject, IDAOConnectionDateServerFirebird, IDAOConnectionDateServer)
+  TDAOConnectionFirebird = class sealed(TInterfacedObject, IDAOConnectionFirebird, IDAOConnectionDateServer)
   strict private
     _Connection: TZConnection;
     _DAOConnection: IDAOConnection;
@@ -44,7 +44,7 @@ type
     constructor Create(const Settings: IConnectionFirebirdSettings);
     destructor Destroy; override;
 
-    class function New(const Settings: IConnectionFirebirdSettings): IDAOConnectionDateServerFirebird;
+    class function New(const Settings: IConnectionFirebirdSettings): IDAOConnectionFirebird;
   end;
 
 implementation
@@ -167,8 +167,7 @@ begin
   inherited;
 end;
 
-class function TDAOConnectionFirebird.New(const Settings: IConnectionFirebirdSettings)
-  : IDAOConnectionDateServerFirebird;
+class function TDAOConnectionFirebird.New(const Settings: IConnectionFirebirdSettings): IDAOConnectionFirebird;
 begin
   Result := TDAOConnectionFirebird.Create(Settings);
 end;

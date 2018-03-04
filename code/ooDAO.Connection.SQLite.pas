@@ -20,7 +20,7 @@ type
     function CreateDatabase: Boolean;
   end;
 
-  TDAOConnectionSQLite = class sealed(TInterfacedObject, IDAOConnectionDateServerSQLite, IDAOConnectionDateServer)
+  TDAOConnectionSQLite = class sealed(TInterfacedObject, IDAOConnectionSQLite, IDAOConnectionDateServer)
   strict private
     _Connection: TZConnection;
     _DAOConnection: IDAOConnection;
@@ -44,7 +44,7 @@ type
     constructor Create(const Settings: IConnectionSQLiteSettings);
     destructor Destroy; override;
 
-    class function New(const Settings: IConnectionSQLiteSettings): IDAOConnectionDateServerSQLite;
+    class function New(const Settings: IConnectionSQLiteSettings): IDAOConnectionSQLite;
   end;
 
 implementation
@@ -151,7 +151,7 @@ begin
   inherited;
 end;
 
-class function TDAOConnectionSQLite.New(const Settings: IConnectionSQLiteSettings): IDAOConnectionDateServerSQLite;
+class function TDAOConnectionSQLite.New(const Settings: IConnectionSQLiteSettings): IDAOConnectionSQLite;
 begin
   Result := TDAOConnectionSQLite.Create(Settings);
 end;
